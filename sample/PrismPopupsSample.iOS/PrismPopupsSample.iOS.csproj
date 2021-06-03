@@ -124,10 +124,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Prism.Forms">
-      <Version>7.2.0.1367</Version>
+      <Version>8.1.97</Version>
     </PackageReference>
     <PackageReference Include="Prism.Unity.Forms">
-      <Version>7.2.0.1367</Version>
+      <Version>8.1.97</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -136,6 +136,10 @@
     <ProjectReference Include="..\..\..\XamarinCommunityToolkit\src\CommunityToolkit\Xamarin.CommunityToolkit\Xamarin.CommunityToolkit.csproj">
       <Project>{c2f7040a-71f3-4c96-a487-1d6b8f1981b8}</Project>
       <Name>Xamarin.CommunityToolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\FileOnQ.Prism.Popups\FileOnQ.Prism.Popups.XCT.csproj">
+      <Project>{1702beb0-19d3-412c-a7f5-7e8461b6c2a8}</Project>
+      <Name>FileOnQ.Prism.Popups.XCT</Name>
     </ProjectReference>
     <ProjectReference Include="..\PrismPopupsSample\PrismPopupsSample.csproj">
       <Project>{575020a0-8a65-411a-b79c-7a06ea08f063}</Project>

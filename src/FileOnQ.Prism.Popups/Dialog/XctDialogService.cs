@@ -9,12 +9,12 @@ using Xamarin.CommunityToolkit.UI.Views;
 
 namespace FileOnQ.Prism.Popups.XCT.Dialogs
 {
-	public class DialogService : IDialogService
+	public class XctDialogService : IDialogService
 	{
 		readonly IApplicationProvider applicationProvider;
 		readonly IContainerProvider container;
 
-		public DialogService(IApplicationProvider applicationProvider, IContainerProvider container)
+		public XctDialogService(IApplicationProvider applicationProvider, IContainerProvider container)
 		{
 			this.applicationProvider = applicationProvider;
 			this.container = container;
@@ -32,7 +32,8 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 
 		public void ShowDialog(string name, IDialogParameters parameters, Action<IDialogResult> callback)
 		{
-			var dialog = container.Resolve<BasePopup>(name);
+			// todo - see if we can resolve as `BasePopup`
+			var dialog = (BasePopup)container.Resolve<object>(name);
 			if (dialog == null)
 				return;
 
@@ -52,14 +53,15 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 				// todo - check hardware back button if light dismissed.
 				//		  maybe it shouldn't close
 
-				// TODO - uncomment once merged to XCT
-				// dialogAware?.OnDialogClosed(e.IsLightDismissed);
+				// todo - Andrew Hoefling (6/3/2021)
+				// We don't use the IsLightDismissed in the VMs but it still
+				// may be useful. Let's revisit this later
+				//dialogAware?.OnDialogClosed(e.IsLightDismissed);
+				dialogAware?.OnDialogClosed();
 
 				var result = (IDialogParameters)e.Result ?? null;
-				// TODO - uncomment once merged to XCT
-				//var dialogResult = new DialogResult { Success = !e.IsLightDismissed, Parameters = result };
-				var dialogResult = new DialogResult { Success = true, Parameters = result };
-
+				var dialogResult = new DialogResult { Success = !e.IsLightDismissed, Parameters = result };
+				
 				if (callback != null)
 					Task.Run(() => callback.Invoke(dialogResult));
 

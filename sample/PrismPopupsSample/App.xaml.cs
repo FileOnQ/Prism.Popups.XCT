@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Globalization;
 using System.Reflection;
+using FileOnQ.Prism.Popups.XCT;
 using Prism;
 using Prism.Ioc;
+using Prism.Modularity;
 using Prism.Mvvm;
 using Prism.Unity;
 using PrismPopupsSample.Views;
@@ -22,8 +24,13 @@ namespace PrismPopupsSample
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<MainPage>(nameof(MainPage));
-			//containerRegistry.RegisterDialog<SamplePopup>(nameof(SamplePopup));
+			containerRegistry.RegisterDialog<SamplePopup>(nameof(SamplePopup));
 			ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(FindViewModel);
+		}
+
+		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+		{
+			moduleCatalog.AddModule<XctPopupModule>();
 		}
 
 		Type FindViewModel(Type viewType)

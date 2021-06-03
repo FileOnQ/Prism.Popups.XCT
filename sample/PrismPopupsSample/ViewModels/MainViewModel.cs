@@ -1,14 +1,16 @@
 ﻿using System.Windows.Input;
 using Prism.Commands;
-using PrismPopupsSample.Views;
-using Xamarin.CommunityToolkit.Extensions;
+using Prism.Services.Dialogs;
 
 namespace PrismPopupsSample.ViewModels
 {
 	public class MainViewModel
 	{
-		public MainViewModel()
+		readonly IDialogService dialogService;
+		public MainViewModel(IDialogService dialogService)
 		{
+			this.dialogService = dialogService;
+
 			OpenPopup = new DelegateCommand(OnOpenPopup);
 		}
 
@@ -16,8 +18,7 @@ namespace PrismPopupsSample.ViewModels
 
 		void OnOpenPopup()
 		{
-			// TODO - update this to use IDialog
-			App.Current.MainPage.Navigation.ShowPopup(new SamplePopup());
+			this.dialogService.ShowDialog("SamplePopup");
 		}
 	}
 }
