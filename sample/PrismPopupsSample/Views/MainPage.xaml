@@ -19,6 +19,9 @@
                 </FormattedString>
             </Label.FormattedText>
         </Label>
+        <Button Text="Show Popup"
+                Margin="30, 15"
+                Command="{Binding OpenPopup}"/>
     </StackLayout>
 
 </ContentPage>

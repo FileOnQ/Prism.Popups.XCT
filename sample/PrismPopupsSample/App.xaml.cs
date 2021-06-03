@@ -22,6 +22,7 @@ namespace PrismPopupsSample
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<MainPage>(nameof(MainPage));
+			//containerRegistry.RegisterDialog<SamplePopup>(nameof(SamplePopup));
 			ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(FindViewModel);
 		}
 
