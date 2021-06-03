@@ -1,6 +1,11 @@
-﻿using Prism;
+﻿using System;
+using System.Globalization;
+using System.Reflection;
+using Prism;
 using Prism.Ioc;
+using Prism.Mvvm;
 using Prism.Unity;
+using PrismPopupsSample.Views;
 
 namespace PrismPopupsSample
 {
@@ -17,6 +22,24 @@ namespace PrismPopupsSample
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
 			containerRegistry.RegisterForNavigation<MainPage>(nameof(MainPage));
+			ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(FindViewModel);
+		}
+
+		Type FindViewModel(Type viewType)
+		{
+			var viewName = string.Empty;
+
+			if (viewType.FullName.EndsWith("Page"))
+			{
+				viewName = viewType.FullName
+				.Replace("Page", string.Empty)
+				.Replace("Views", "ViewModels");
+			}
+
+			var viewAssemblyName = viewType.GetTypeInfo().Assembly.FullName;
+			var viewModelName = string.Format(CultureInfo.InvariantCulture, "{0}ViewModel, {1}", viewName, viewAssemblyName);
+
+			return Type.GetType(viewModelName);
 		}
 	}
 }
