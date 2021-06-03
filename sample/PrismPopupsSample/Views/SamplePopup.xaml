@@ -6,9 +6,10 @@
            x:Class="PrismPopupsSample.Views.SamplePopup">
 
     <xct:Popup.Content>
-        <StackLayout VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="CenterAndExpand">
-            <Label Text="Hello from XCT Popup!" />
+        <StackLayout>
+            <Label Text="Hello from XCT Popup!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+            <Button Text="Close" Command="{Binding Close}" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" />
+
         </StackLayout>
     </xct:Popup.Content>
     
