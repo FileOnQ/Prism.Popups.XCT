@@ -23,14 +23,10 @@ namespace PrismPopupsSample
 
 		protected override void RegisterTypes(IContainerRegistry containerRegistry)
 		{
+			containerRegistry.UseXctPopups();
 			containerRegistry.RegisterForNavigation<MainPage>(nameof(MainPage));
 			containerRegistry.RegisterDialog<SamplePopup>(nameof(SamplePopup));
 			ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(FindViewModel);
-		}
-
-		protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-		{
-			moduleCatalog.AddModule<XctPopupModule>();
 		}
 
 		Type FindViewModel(Type viewType)

@@ -33,6 +33,7 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 		public void ShowDialog(string name, IDialogParameters parameters, Action<IDialogResult> callback)
 		{
 			// todo - see if we can resolve as `BasePopup`
+			// resolve any View and if it isn't a BasePopup wrap it into one
 			var dialog = (BasePopup)container.Resolve<object>(name);
 			if (dialog == null)
 				return;

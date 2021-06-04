@@ -9,6 +9,9 @@ namespace FileOnQ.Prism.Popups.XCT
 	{
 		public void OnInitialized(IContainerProvider containerProvider) 
 		{
+			// Note - Andrew Hoefling (6/4/2021)
+			// The module is invoked via extension method and 
+			// the OnInitialized method is not used or invoked.
 		}
 
 		public void RegisterTypes(IContainerRegistry containerRegistry)
