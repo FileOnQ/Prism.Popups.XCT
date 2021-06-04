@@ -55,8 +55,23 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 			else
 				return;
 
-			if (parameters != null && parameters.ContainsKey("Size"))
-				dialog.Size = parameters.GetValue<Size>("Size");
+			if (parameters != null)
+			{
+				if (parameters.ContainsKey("Size"))
+					dialog.Size = parameters.GetValue<Size>("Size");
+
+				if (parameters.ContainsKey("Color"))
+					dialog.Color = parameters.GetValue<Color>("Color");
+
+				if (parameters.ContainsKey("VerticalOptions"))
+					dialog.VerticalOptions = parameters.GetValue<LayoutOptions>("VerticalOptions");
+
+				if (parameters.ContainsKey("HorizontalOptions"))
+					dialog.HorizontalOptions = parameters.GetValue<LayoutOptions>("HorizontalOptions");
+
+				if (parameters.ContainsKey("IsLightDismissEnabled"))
+					dialog.IsLightDismissEnabled = parameters.GetValue<bool>("IsLightDismissEnabled");
+			}
 
 			IDialogAware dialogAware = null;
 			if (bindingContext is IDialogAware)

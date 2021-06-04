@@ -1,4 +1,5 @@
 ﻿using System.Windows.Input;
+using FileOnQ.Prism.Popups.XCT;
 using Prism.Commands;
 using Prism.Services.Dialogs;
 using Xamarin.Forms;
@@ -21,10 +22,12 @@ namespace PrismPopupsSample.ViewModels
 
 		void OnOpenPopup(string name)
 		{
-			var parameters = new DialogParameters
-			{
-				{ "Size", new Size(125, 250) }
-			};
+			var parameters = new DialogParameters()
+				.SetSize(125, 250)
+				.SetColor(Color.Purple)
+				.SetHorizontalOptions(LayoutOptions.EndAndExpand)
+				.SetVerticalOptions(LayoutOptions.EndAndExpand)
+				.SetIsLightDismissEnabled(false);
 
 			this.dialogService.ShowDialog(name, parameters);
 		}
