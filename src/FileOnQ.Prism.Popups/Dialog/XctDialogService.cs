@@ -63,6 +63,8 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 			{
 				// todo - check hardware back button if light dismissed.
 				//		  maybe it shouldn't close
+				// note - This is something that needs to be handled upstrea
+				//        with a new API in the XCT Popup Renderer.
 
 				// todo - Andrew Hoefling (6/3/2021)
 				// We don't use the IsLightDismissed in the VMs but it still
