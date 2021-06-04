@@ -26,4 +26,4 @@ jobs:
 
     - run: nuget restore
 
-    - run: msbuild FileOnQ.Prism.Popups.XCT.sln
+    - run: msbuild FileOnQ.Prism.Popups.XCT.sln /p:Platform="Any CPU" /p:Configuration="Release"
