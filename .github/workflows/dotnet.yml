@@ -13,11 +13,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 5.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore 'src/FileOnQ.Prism.Popups/FileOnQ.Prism.Popups.csproj'
+    
+    - name: Setup NuGet.exe
+      uses: NuGet/setup-nuget@v1.0.5
+      with:
+        nuget-version: 5.x
+
+    - run: nuget restore
+
+    - run: msbuild FileOnQ.Prism.Popups.XCT.sln
