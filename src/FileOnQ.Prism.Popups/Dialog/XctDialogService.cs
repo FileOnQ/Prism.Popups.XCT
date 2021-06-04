@@ -34,9 +34,14 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 		public void ShowDialog(string name, IDialogParameters parameters, Action<IDialogResult> callback)
 		{
 			var element = container.Resolve<object>(name);
+			
 			BasePopup dialog;
+			object bindingContext;
 			if (element != null && element is BasePopup basePopup)
+			{
 				dialog = basePopup;
+				bindingContext = dialog.BindingContext;
+			}
 			else if (element != null && element is View view)
 			{
 				dialog = new Popup
@@ -44,14 +49,16 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 					Content = view,
 					Size = new Size(250, 250)
 				};
+
+				bindingContext = view.BindingContext;
 			}
 			else
 				return;
 
 			IDialogAware dialogAware = null;
-			if (dialog.BindingContext is IDialogAware)
+			if (bindingContext is IDialogAware)
 			{
-				dialogAware = (IDialogAware)dialog.BindingContext;
+				dialogAware = (IDialogAware)bindingContext;
 				dialogAware?.OnDialogOpened(parameters);
 				dialogAware.RequestClose += Dialog_RequestClose;
 			}
