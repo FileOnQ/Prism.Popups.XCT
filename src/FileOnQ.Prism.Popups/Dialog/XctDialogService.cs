@@ -44,7 +44,7 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 			}
 			else if (element != null && element is View view)
 			{
-				dialog = new Popup
+				dialog = new Popup 
 				{
 					Content = view,
 					Size = new Size(250, 250)
@@ -54,6 +54,9 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 			}
 			else
 				return;
+
+			if (parameters != null && parameters.ContainsKey("Size"))
+				dialog.Size = parameters.GetValue<Size>("Size");
 
 			IDialogAware dialogAware = null;
 			if (bindingContext is IDialogAware)

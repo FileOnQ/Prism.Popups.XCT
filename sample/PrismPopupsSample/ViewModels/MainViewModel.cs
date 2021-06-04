@@ -1,6 +1,7 @@
 ﻿using System.Windows.Input;
 using Prism.Commands;
 using Prism.Services.Dialogs;
+using Xamarin.Forms;
 
 namespace PrismPopupsSample.ViewModels
 {
@@ -20,7 +21,12 @@ namespace PrismPopupsSample.ViewModels
 
 		void OnOpenPopup(string name)
 		{
-			this.dialogService.ShowDialog(name);
+			var parameters = new DialogParameters
+			{
+				{ "Size", new Size(125, 250) }
+			};
+
+			this.dialogService.ShowDialog(name, parameters);
 		}
 	}
 }
