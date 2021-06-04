@@ -11,14 +11,16 @@ namespace PrismPopupsSample.ViewModels
 		{
 			this.dialogService = dialogService;
 
-			OpenPopup = new DelegateCommand(OnOpenPopup);
+			OpenPopup = new DelegateCommand(() => OnOpenPopup("SamplePopup"));
+			OpenContentView = new DelegateCommand(() => OnOpenPopup("PopupView"));
 		}
 
 		public ICommand OpenPopup { get; }
+		public ICommand OpenContentView { get; }
 
-		void OnOpenPopup()
+		void OnOpenPopup(string name)
 		{
-			this.dialogService.ShowDialog("SamplePopup");
+			this.dialogService.ShowDialog(name);
 		}
 	}
 }

@@ -22,6 +22,9 @@
         <Button Text="Show Popup"
                 Margin="30, 15"
                 Command="{Binding OpenPopup}"/>
+        <Button Text="Show Popup - ContentView"
+                Margin="30, 15"
+                Command="{Binding OpenContentView}" />
     </StackLayout>
 
 </ContentPage>

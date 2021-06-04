@@ -6,6 +6,7 @@ using Prism.Navigation;
 using Prism.Services.Dialogs;
 using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.CommunityToolkit.UI.Views;
+using Xamarin.Forms;
 
 namespace FileOnQ.Prism.Popups.XCT.Dialogs
 {
@@ -32,10 +33,19 @@ namespace FileOnQ.Prism.Popups.XCT.Dialogs
 
 		public void ShowDialog(string name, IDialogParameters parameters, Action<IDialogResult> callback)
 		{
-			// todo - see if we can resolve as `BasePopup`
-			// resolve any View and if it isn't a BasePopup wrap it into one
-			var dialog = (BasePopup)container.Resolve<object>(name);
-			if (dialog == null)
+			var element = container.Resolve<object>(name);
+			BasePopup dialog;
+			if (element != null && element is BasePopup basePopup)
+				dialog = basePopup;
+			else if (element != null && element is View view)
+			{
+				dialog = new Popup
+				{
+					Content = view,
+					Size = new Size(250, 250)
+				};
+			}
+			else
 				return;
 
 			IDialogAware dialogAware = null;

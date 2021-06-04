@@ -26,6 +26,7 @@ namespace PrismPopupsSample
 			containerRegistry.UseXctPopups();
 			containerRegistry.RegisterForNavigation<MainPage>(nameof(MainPage));
 			containerRegistry.RegisterDialog<SamplePopup>(nameof(SamplePopup));
+			containerRegistry.RegisterDialog<PopupView>(nameof(PopupView));
 			ViewModelLocationProvider.SetDefaultViewTypeToViewModelTypeResolver(FindViewModel);
 		}
 
