@@ -19,7 +19,7 @@ namespace PrismPopupsSample.ViewModels
 
 		public event Action<IDialogParameters> RequestClose;
 
-		public bool CanCloseDialog() => false;
+		public bool CanCloseDialog() => true;
 
 		public void OnDialogClosed()
 		{

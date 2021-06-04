@@ -6,10 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Forms" Version="8.1.97" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\XamarinCommunityToolkit\src\CommunityToolkit\Xamarin.CommunityToolkit\Xamarin.CommunityToolkit.csproj" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2602" />
   </ItemGroup>
 
 </Project>
