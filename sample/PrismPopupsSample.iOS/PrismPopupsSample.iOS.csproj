@@ -123,20 +123,14 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Forms">
-      <Version>8.1.97</Version>
-    </PackageReference>
-    <PackageReference Include="Prism.Unity.Forms">
-      <Version>8.1.97</Version>
-    </PackageReference>
-    <PackageReference Include="Xamarin.CommunityToolkit">
-      <Version>1.1.0-preview2602</Version>
-    </PackageReference>
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+    <PackageReference Include="Prism.Unity.Forms" Version="8.1.97" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FileOnQ.Prism.Popups\FileOnQ.Prism.Popups.XCT.csproj">
+    <ProjectReference Include="..\..\src\FileOnQ.Prism.Popups.XCT\FileOnQ.Prism.Popups.XCT.csproj">
       <Project>{1702beb0-19d3-412c-a7f5-7e8461b6c2a8}</Project>
       <Name>FileOnQ.Prism.Popups.XCT</Name>
     </ProjectReference>

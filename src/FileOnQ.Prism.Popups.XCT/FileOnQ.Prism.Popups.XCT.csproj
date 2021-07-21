@@ -27,11 +27,11 @@
 
   <ItemGroup>
     <PackageReference Include="Prism.Forms" Version="8.1.97" />
-    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2602" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.2.0" />
   </ItemGroup>
   
   <ItemGroup>
-    <None Include="..\..\images\fileonq.png" Pack="true" PackagePath=""/>
+    <None Include="..\..\images\fileonq.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
