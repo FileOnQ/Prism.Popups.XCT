@@ -27,4 +27,4 @@ jobs:
       run: dotnet tool restore
 
     - name: Build
-    - run: dotnet cake --Target=CI-Build
+      run: dotnet cake --Target=CI-Build
