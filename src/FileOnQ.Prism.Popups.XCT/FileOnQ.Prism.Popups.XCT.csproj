@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+
+    <!-- NuGet Package Properties -->
+    <PackageId>FileOnQ.Prism.Popups.XCT</PackageId>
+    <Summary>Prism Library Plugin to support Xamarin Community Toolkit (XCT) Popups using the Prism Dialog API</Summary>
+    <PackageTag>prism, dialog, xamarin-forms, popups, xct, prismlibrary, xamarin-community-toolkit</PackageTag>
+    <Title>FileOnQ.Prism.Popups.XCT</Title>
+    <Description>Prism Library Plugin to support Xamarin Community Toolkit (XCT) Popups using the Prism Dialog API</Description>
+    <PackageIcon>fileonq.png</PackageIcon>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+<!--    <AssemblyVersion>8.1.97.0</AssemblyVersion>-->
+<!--    <AssemblyFileVersion>8.1.97.0</AssemblyFileVersion>-->
+<!--    <Version>8.1.97</Version>-->
+    <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+    <Authors>FileOnQ</Authors>
+    <Owners>fileonq</Owners>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Copyright>© FileOnQ, Inc. All rights reserved.</Copyright>
+    <License>MIT</License>
+    <RepositoryUrl>https://github.com/FileOnQ/Prism.Popups.XCT</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <!-- End NuGet Package Properties -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Forms" Version="8.1.97" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.1.0-preview2602" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="..\..\images\fileonq.png" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+</Project>
