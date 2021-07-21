@@ -25,9 +25,9 @@ namespace PrismPopupsSample.ViewModels
 			var parameters = new DialogParameters()
 				.SetSize(125, 250)
 				.SetColor(Color.Purple)
-				.SetHorizontalOptions(LayoutOptions.EndAndExpand)
-				.SetVerticalOptions(LayoutOptions.EndAndExpand)
-				.SetIsLightDismissEnabled(false);
+				.SetHorizontalOptions(LayoutOptions.CenterAndExpand)
+				.SetVerticalOptions(LayoutOptions.CenterAndExpand)
+				.SetIsLightDismissEnabled(true);
 
 			this.dialogService.ShowDialog(name, parameters);
 		}
