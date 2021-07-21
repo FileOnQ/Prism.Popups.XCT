@@ -1,0 +1,51 @@
+name: Package
+
+on:
+  push:
+    tags: [ 'v*', 'v*-dev.*']
+
+jobs:
+  package:
+    runs-on: windows-2019
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v1.7.2
+        with:
+          dotnet-version: 5.0.102
+
+      - name: Setup NuGet.exe
+        uses: NuGet/setup-nuget@v1.0.5
+        with:
+          nuget-version: 5.x
+
+      - name: Restore .NET Tools
+        run: dotnet tool restore
+
+      - name: Build
+        run: dotnet cake --target=Pack --ref=${{ github.ref }}
+
+      - name: Set NuGet API Key
+        run: nuget setApiKey ${{ NUGET_API_KEY }}
+
+      - name: Publish NuGet Package to GitHub
+        run: nuget push *.nupkg -Source https://api.nuget.org/v3/index.json
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: FileOnQ.Prism.Popups.XCT
+          path: '**/*.nupkg'
+  
+#  release:
+#    runs-on: windows-2019
+#    needs: package
+#    if: contains(github.ref, 'dev') == false
+#    steps:
+#      - name: NPM Install GitHub-Release-Notes
+#        run: npm install github-release-notes -g
+#
+#      - name: Create GitHub Release
+#        run: gren release --username=FileOnQ --token=${{ secrets.ACCESS_TOKEN }} --repo=BarcodeCore --ignore-tags-with="preview" --override
