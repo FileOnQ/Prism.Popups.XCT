@@ -38,14 +38,3 @@ jobs:
         with:
           name: FileOnQ.Prism.Popups.XCT
           path: '**/*.nupkg'
-  
-#  release:
-#    runs-on: windows-2019
-#    needs: package
-#    if: contains(github.ref, 'dev') == false
-#    steps:
-#      - name: NPM Install GitHub-Release-Notes
-#        run: npm install github-release-notes -g
-#
-#      - name: Create GitHub Release
-#        run: gren release --username=FileOnQ --token=${{ secrets.ACCESS_TOKEN }} --repo=BarcodeCore --ignore-tags-with="preview" --override
