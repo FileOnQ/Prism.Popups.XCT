@@ -25,7 +25,7 @@ jobs:
         run: dotnet tool restore
 
       - name: Build
-        run: dotnet cake --target=Pack --ref=${{ github.ref }}
+        run: dotnet cake --target=Package-Build --ref=${{ github.ref }}
 
       - name: Set NuGet API Key
         run: nuget setApiKey ${{ secrets.NUGET_API_KEY }}
