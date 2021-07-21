@@ -28,7 +28,7 @@ The project is currently in the initial phase of transitioning the internal libr
 ## Setup
 Add the NuGet to all shared code and platform code.
 
-TODO - Add NuGet and Nightly NuGet
+[![FeedOnQ](https://img.shields.io/badge/NuGet-FileOnQ.Prism.Popups.XCT-blue.svg)](https://www.nuget.org/packages/FileOnQ.Prism.Popups.XCT)
 
 Add the following code to your RegisterTypes method in `App.xaml.cs`
 ```c#
@@ -53,7 +53,7 @@ The library is dependent on the Xamarin Community Toolkit's popup support. Pleas
 
 | Library                   | Version   | Status |
 |---------------------------|-----------|--------|
-| Xamarin Community Toolkit | 1.2.0+    | 🔃     |
+| Xamarin Community Toolkit | 1.2.0+    | ✅     |
 | Prism Library             | 8.1       | ✅     |
 | Prism Library             | 8.0       | Not Started |
 | Prism Library             | 7.2       | Not Started |
